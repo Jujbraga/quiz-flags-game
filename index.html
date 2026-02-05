@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Flags</title>
+
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="game-title">
+        <div class="logo">
+          <img src="assets/quiz.svg" alt="" width="40px" />
+          <h1>Quiz</h1>
+        </div>
+        <h3>Europe Flags</h3>
+      </div>
+    </header>
+
+    <div class="level-options">
+      <h2>Chose a level</h2>
+      <div class="button-wrapper">
+        <button id="easy" class="button">Easy</button>
+        <button id="medium" class="button">Medium</button>
+        <button id="hard" class="button">Hard</button>
+      </div>
+    </div>
+
+    <main class="quiz-container hidden">
+      <div class="card">
+        <h2>Whose flag is this?</h2>
+        <img id="flag" class="card-flag" src="assets/flags/france.svg" alt="" />
+        <input type="text" name="answer" id="answer" />
+        <button id="button" class="button">Send</button>
+      </div>
+    </main>
+
+    <div class="result-container hidden">
+      <div class="quiz-box">
+        <div class="result-title">
+          <img src="assets/icons/check-circle.svg" alt="Right" />
+          <p id="right-count">10 right answers</p>
+        </div>
+        <div id="right-results" class="results">
+          <img src="assets/flags/france.svg" alt="" />
+          <p>Country</p>
+        </div>
+      </div>
+
+      <div class="quiz-box">
+        <div class="result-title">
+          <img src="assets/icons/wrong-circle.svg" alt="Wrong" />
+          <p id="wrong-count">10 wrong answers</p>
+        </div>
+        <div id="wrong-results" class="results">
+          <img src="assets/flags/uk.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Developed with ❤️ by
+        <a href="https://www.google.com/search?q=https://github.com/Jujbraga">
+          Juliana Braga
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
