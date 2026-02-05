@@ -1,0 +1,229 @@
+{
+  "levels": [
+    {
+      "difficulty": "easy",
+      "data": [
+        {
+          "id": 1,
+          "country": { "en": "France", "sv": "Frankrike", "pt": "França" },
+          "url": "fr.svg",
+          "hint": "There is a famous tower there"
+        },
+        {
+          "id": 2,
+          "country": { "en": "Germany", "sv": "Tyskland", "pt": "Alemanha" },
+          "url": "de.svg",
+          "hint": "Famous for the Autobahn and Oktoberfest"
+        },
+        {
+          "id": 3,
+          "country": {
+            "en": "United Kingdom",
+            "sv": "Storbritannien",
+            "pt": "Reino Unido"
+          },
+          "url": "uk.svg",
+          "hint": "Home to Big Ben and the Royal Family"
+        },
+        {
+          "id": 4,
+          "country": { "en": "Italy", "sv": "Italien", "pt": "Itália" },
+          "url": "it.svg",
+          "hint": "The birthplace of pizza and the Roman Empire"
+        },
+        {
+          "id": 5,
+          "country": { "en": "Spain", "sv": "Spanien", "pt": "Espanha" },
+          "url": "es.svg",
+          "hint": "Famous for Flamenco and delicious Paella"
+        },
+        {
+          "id": 6,
+          "country": { "en": "Greece", "sv": "Grekland", "pt": "Grécia" },
+          "url": "gr.svg",
+          "hint": "The birthplace of the Olympic Games"
+        },
+        {
+          "id": 7,
+          "country": { "en": "Norway", "sv": "Norge", "pt": "Noruega" },
+          "url": "no.svg",
+          "hint": "Famous for its deep and dramatic fjords"
+        },
+        {
+          "id": 8,
+          "country": { "en": "Sweden", "sv": "Sverige", "pt": "Suécia" },
+          "url": "se.svg",
+          "hint": "Home of IKEA, ABBA, and the Nobel Prize"
+        },
+        {
+          "id": 9,
+          "country": { "en": "Portugal", "sv": "Portugal", "pt": "Portugal" },
+          "url": "pt.svg",
+          "hint": "Known for Fado music and its Atlantic coastline"
+        },
+        {
+          "id": 10,
+          "country": { "en": "Ireland", "sv": "Irland", "pt": "Irlanda" },
+          "url": "ie.svg",
+          "hint": "Known as the Emerald Isle"
+        }
+      ]
+    },
+    {
+      "difficulty": "medium",
+      "data": [
+        {
+          "id": 11,
+          "country": { "en": "Denmark", "sv": "Danmark", "pt": "Dinamarca" },
+          "url": "dk.svg",
+          "hint": "Home to Lego and the Little Mermaid statue"
+        },
+        {
+          "id": 12,
+          "country": { "en": "Belgium", "sv": "Belgien", "pt": "Bélgica" },
+          "url": "be.svg",
+          "hint": "Famous for waffles, chocolate, and the EU headquarters"
+        },
+        {
+          "id": 13,
+          "country": { "en": "Poland", "sv": "Polen", "pt": "Polônia" },
+          "url": "pl.svg",
+          "hint": "The country of Chopin and Copernicus"
+        },
+        {
+          "id": 14,
+          "country": { "en": "Iceland", "sv": "Island", "pt": "Islândia" },
+          "url": "is.svg",
+          "hint": "The land of Fire and Ice"
+        },
+        {
+          "id": 15,
+          "country": { "en": "Ukraine", "sv": "Ukraina", "pt": "Ucrânia" },
+          "url": "ua.svg",
+          "hint": "The blue and yellow represent the sky and wheat fields"
+        },
+        {
+          "id": 16,
+          "country": { "en": "Austria", "sv": "Österrike", "pt": "Áustria" },
+          "url": "at.svg",
+          "hint": "A center for classical music and the Alps"
+        },
+        {
+          "id": 17,
+          "country": {
+            "en": "Czech Republic",
+            "sv": "Tjeckien",
+            "pt": "Chéquia"
+          },
+          "url": "cz.svg",
+          "hint": "Famous for its capital, Prague, and medieval castles"
+        },
+        {
+          "id": 18,
+          "country": { "en": "Finland", "sv": "Finland", "pt": "Finlândia" },
+          "url": "fi.svg",
+          "hint": "Known as the Land of a Thousand Lakes"
+        },
+        {
+          "id": 19,
+          "country": { "en": "Croatia", "sv": "Kroatien", "pt": "Croácia" },
+          "url": "hr.svg",
+          "hint": "Famous for the red and white checkered pattern on its football jerseys"
+        },
+        {
+          "id": 20,
+          "country": { "en": "Lithuania", "sv": "Litauen", "pt": "Lituânia" },
+          "url": "lt.svg",
+          "hint": "A Baltic country whose name starts with 'L' and is a world leader in basketball"
+        }
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "data": [
+        {
+          "id": 21,
+          "country": {
+            "en": "San Marino",
+            "sv": "San Marino",
+            "pt": "San Marino"
+          },
+          "url": "sm.svg",
+          "hint": "One of the world's oldest republics, completely surrounded by Italy"
+        },
+        {
+          "id": 22,
+          "country": { "en": "Bulgaria", "sv": "Bulgarien", "pt": "Bulgária" },
+          "url": "bg.svg",
+          "hint": "Located in the Balkans, famous for its rose oil"
+        },
+        {
+          "id": 23,
+          "country": { "en": "Romania", "sv": "Rumänien", "pt": "Romênia" },
+          "url": "ro.svg",
+          "hint": "Home to the historic region of Transylvania"
+        },
+        {
+          "id": 24,
+          "country": {
+            "en": "Slovakia",
+            "sv": "Slovakien",
+            "pt": "Eslováquia"
+          },
+          "url": "sk.svg",
+          "hint": "A Central European country that used to be one half of 'Czechoslovakia'"
+        },
+        {
+          "id": 25,
+          "country": { "en": "Albania", "sv": "Albanien", "pt": "Albânia" },
+          "url": "al.svg",
+          "hint": "Its flag is a black double-headed eagle on a bright red background"
+        },
+        {
+          "id": 26,
+          "country": { "en": "Malta", "sv": "Malta", "pt": "Malta" },
+          "url": "mt.svg",
+          "hint": "A tiny island south of Italy that was home to famous medieval knights"
+        },
+        {
+          "id": 27,
+          "country": { "en": "Andorra", "sv": "Andorra", "pt": "Andorra" },
+          "url": "ad.svg",
+          "hint": "A tiny principality located in the Pyrenees mountains"
+        },
+        {
+          "id": 28,
+          "country": { "en": "Cyprus", "sv": "Cypern", "pt": "Chipre" },
+          "url": "cy.svg",
+          "hint": "The flag features the actual shape of the island"
+        },
+        {
+          "id": 29,
+          "country": { "en": "Moldova", "sv": "Moldavien", "pt": "Moldávia" },
+          "url": "md.svg",
+          "hint": "Known for its massive wine cellars"
+        },
+        {
+          "id": 30,
+          "country": {
+            "en": "Vatican",
+            "sv": "Vatikanstaten",
+            "pt": "Vaticano"
+          },
+          "url": "va.svg",
+          "hint": "The smallest independent state in the world"
+        },
+        {
+          "id": 31,
+          "country": {
+            "en": "Gibraltar",
+            "sv": "Gibraltar",
+            "pt": "Gibraltar"
+          },
+          "url": "gi.svg",
+          "hint": "Famous for a giant rock and the only wild monkeys in Europe"
+        }
+      ]
+    }
+  ]
+}
