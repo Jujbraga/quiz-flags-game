@@ -103,8 +103,12 @@ footer {
 
 .hint {
   color: var(--brand-dark);
-  border-radius: 0.5rem;
   cursor: pointer;
+}
+
+.revealed {
+  color: inherit;
+  cursor: default;
 }
 
 .button {

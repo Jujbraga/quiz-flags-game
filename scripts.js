@@ -60,8 +60,6 @@ function shuffle(array) {
 }
 
 function createCard(country) {
-  console.log(country);
-
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
 
@@ -75,6 +73,9 @@ function createCard(country) {
   const cardHint = document.createElement("p");
   cardHint.classList.add("hint");
   cardHint.textContent = "Show hint";
+  cardHint.addEventListener("click", () => showHint(cardHint, country), {
+    once: true,
+  });
 
   const cardInput = document.createElement("input");
   cardInput.setAttribute("type", "text");
@@ -111,13 +112,18 @@ function renderCard() {
   quizContainer.appendChild(cardElement);
 }
 
+function showHint(element, country) {
+  element.textContent = country.hint;
+  element.classList.add("revealed");
+}
+
 getFlags("eu-flags.json");
 
 // 1. Get data from json - OK
 // 2. Set level by click - OK
 // 3. Separate data by level - OK
-// 4. Build the card
-// 5. Show each data in the card
+// 4. Build the card - OK
+// 5. Show each data in the card - OK
 // 6. Receive the input and check answer
 // 7. Message: Right and Wrong
 // 8. Put the country in right or wrong result
