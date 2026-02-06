@@ -111,6 +111,12 @@ footer {
   cursor: default;
 }
 
+form {
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+}
+
 .button {
   all: unset;
   display: flex;

@@ -59,7 +59,8 @@ function shuffle(array) {
   return shuffled;
 }
 
-function createCard(country) {
+function createCard(flag) {
+  console.log(flag);
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
 
@@ -68,13 +69,19 @@ function createCard(country) {
 
   const cardImg = document.createElement("img");
   cardImg.classList.add("card-flag");
-  cardImg.setAttribute("src", imgPath + country.url);
+  cardImg.setAttribute("src", imgPath + flag.url);
 
   const cardHint = document.createElement("p");
   cardHint.classList.add("hint");
   cardHint.textContent = "Show hint";
-  cardHint.addEventListener("click", () => showHint(cardHint, country), {
+  cardHint.addEventListener("click", () => showHint(cardHint, flag.hint), {
     once: true,
+  });
+
+  const cardForm = document.createElement("form");
+  cardForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    checkAnswer(cardInput.value, flag.country);
   });
 
   const cardInput = document.createElement("input");
@@ -87,19 +94,14 @@ function createCard(country) {
   submitButton.setAttribute("id", "submit-button");
   submitButton.textContent = "Submit";
 
+  cardForm.append(cardInput, submitButton);
+
   const skipButton = document.createElement("button");
   skipButton.classList.add("button-flat");
   skipButton.setAttribute("id", "skip-button");
   skipButton.textContent = "Skip ➜";
 
-  cardElement.append(
-    cardTitle,
-    cardImg,
-    cardHint,
-    cardInput,
-    submitButton,
-    skipButton,
-  );
+  cardElement.append(cardTitle, cardImg, cardHint, cardForm, skipButton);
 
   return cardElement;
 }
@@ -112,9 +114,21 @@ function renderCard() {
   quizContainer.appendChild(cardElement);
 }
 
-function showHint(element, country) {
-  element.textContent = country.hint;
+function showHint(element, hint) {
+  element.textContent = hint;
   element.classList.add("revealed");
+}
+
+function checkAnswer(answer, country) {
+  const findAnswer = Object.values(country).filter((value) => {
+    return value.toLowerCase() === answer.toLowerCase();
+  });
+
+  if (!findAnswer.length) {
+    console.log("wrong");
+  } else {
+    console.log("right");
+  }
 }
 
 getFlags("eu-flags.json");
