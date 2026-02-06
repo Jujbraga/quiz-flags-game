@@ -35,6 +35,9 @@ function setLevel() {
     // Set level to dataset value
     level = btn.dataset.level;
 
+    // Hide the level options
+    levelOptions.classList.add("hidden");
+
     // Start Game
     initGame(level);
   });
@@ -47,13 +50,65 @@ function initGame(level) {
   // Shuffle the flags
   shuffledFlags = shuffle(levelFlags);
 
-  console.log(shuffledFlags);
+  renderCard();
 }
 
 // Shuffle items in the array
 function shuffle(array) {
   const shuffled = array.sort(() => Math.random() - 0.5);
   return shuffled;
+}
+
+function createCard(country) {
+  console.log(country);
+
+  const cardElement = document.createElement("div");
+  cardElement.classList.add("card");
+
+  const cardTitle = document.createElement("h2");
+  cardTitle.textContent = "Whose flag is this?";
+
+  const cardImg = document.createElement("img");
+  cardImg.classList.add("card-flag");
+  cardImg.setAttribute("src", imgPath + country.url);
+
+  const cardHint = document.createElement("p");
+  cardHint.classList.add("hint");
+  cardHint.textContent = "Show hint";
+
+  const cardInput = document.createElement("input");
+  cardInput.setAttribute("type", "text");
+  cardInput.setAttribute("name", "answer");
+  cardInput.setAttribute("id", "answer");
+
+  const submitButton = document.createElement("button");
+  submitButton.classList.add("button");
+  submitButton.setAttribute("id", "submit-button");
+  submitButton.textContent = "Submit";
+
+  const skipButton = document.createElement("button");
+  skipButton.classList.add("button-flat");
+  skipButton.setAttribute("id", "skip-button");
+  skipButton.textContent = "Skip ➜";
+
+  cardElement.append(
+    cardTitle,
+    cardImg,
+    cardHint,
+    cardInput,
+    submitButton,
+    skipButton,
+  );
+
+  return cardElement;
+}
+
+function renderCard() {
+  const quizContainer = document.querySelector(".quiz-container");
+  quizContainer.classList.remove("hidden");
+
+  const cardElement = createCard(shuffledCountries[0]);
+  quizContainer.appendChild(cardElement);
 }
 
 getFlags("eu-flags.json");
@@ -67,3 +122,5 @@ getFlags("eu-flags.json");
 // 7. Message: Right and Wrong
 // 8. Put the country in right or wrong result
 // 9. Change the card
+// 10. Change level
+// 11. Restart game
