@@ -60,7 +60,6 @@ function shuffle(array) {
 }
 
 function createCard(flag) {
-  console.log(flag);
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
 
@@ -110,7 +109,7 @@ function renderCard() {
   const quizContainer = document.querySelector(".quiz-container");
   quizContainer.classList.remove("hidden");
 
-  const cardElement = createCard(shuffledCountries[0]);
+  const cardElement = createCard(shuffledFlags[0]);
   quizContainer.appendChild(cardElement);
 }
 
@@ -120,15 +119,40 @@ function showHint(element, hint) {
 }
 
 function checkAnswer(answer, country) {
-  const findAnswer = Object.values(country).filter((value) => {
-    return value.toLowerCase() === answer.toLowerCase();
-  });
+  const isCorrect = Object.values(country).some(
+    (value) => value.toLowerCase() === answer.toLowerCase(),
+  );
 
-  if (!findAnswer.length) {
-    console.log("wrong");
-  } else {
-    console.log("right");
-  }
+  createResultMessage(isCorrect ? "right" : "wrong");
+}
+
+function createResultMessage(result) {
+  const config = {
+    right: {
+      icon: "assets/icons/check-circle.svg",
+      text: "🎉 Congrats! Right answer.",
+    },
+    wrong: {
+      icon: "assets/icons/wrong-circle.svg",
+      text: "😢 Wrong answer.",
+    },
+  };
+
+  const { icon, text } = config[result];
+
+  const modal = document.createElement("div");
+  modal.classList.add("modal");
+
+  modal.innerHTML = `
+    <div class="card ${result}">
+      <img src="${icon}" />
+      <h3>${text}</h3>
+      <button class="button">Next</button>
+    </div>`;
+
+  const quizContainer = document.querySelector(".quiz-container");
+
+  quizContainer.appendChild(modal);
 }
 
 getFlags("eu-flags.json");
@@ -138,8 +162,8 @@ getFlags("eu-flags.json");
 // 3. Separate data by level - OK
 // 4. Build the card - OK
 // 5. Show each data in the card - OK
-// 6. Receive the input and check answer
-// 7. Message: Right and Wrong
+// 6. Receive the input and check answer - OK
+// 7. Message: Right and Wrong -OK
 // 8. Put the country in right or wrong result
 // 9. Change the card
 // 10. Change level

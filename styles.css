@@ -5,7 +5,6 @@
 }
 
 :root {
-  /* --brand-light: #ffcf34; */
   --brand-light: #f9de45;
   --brand-dark: #f89739;
   --background: #020202;
@@ -163,6 +162,29 @@ form {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.right {
+  background: #e6f7d4;
+  border: 5px solid #4fbf4d;
+}
+
+.wrong {
+  background: #f9dddd;
+  border: 5px solid #ed2502;
 }
 
 .results {
