@@ -63,44 +63,30 @@ function createCard(flag) {
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
 
-  const cardTitle = document.createElement("h2");
-  cardTitle.textContent = "Whose flag is this?";
+  cardElement.innerHTML = `
+    <h2>Whose flag is this?</h2>
+    <img class="card-flag" src="${imgPath + flag.url}">
+    <p id="hint" class="hint">Show hint</p>
+    <form id="card-form">
+      <input type="text" name="answer" id="answer">
+      <button class="button" id="submit">Submit</button>
+    </form>
+    <button class="button-flat" id="skip">Skip ➜</button>`;
 
-  const cardImg = document.createElement("img");
-  cardImg.classList.add("card-flag");
-  cardImg.setAttribute("src", imgPath + flag.url);
-
-  const cardHint = document.createElement("p");
-  cardHint.classList.add("hint");
-  cardHint.textContent = "Show hint";
+  const cardHint = cardElement.querySelector("#hint");
   cardHint.addEventListener("click", () => showHint(cardHint, flag.hint), {
     once: true,
   });
 
-  const cardForm = document.createElement("form");
+  const cardForm = cardElement.querySelector("#card-form");
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    const cardInput = document.querySelector("form input");
     checkAnswer(cardInput.value, flag.country);
   });
 
-  const cardInput = document.createElement("input");
-  cardInput.setAttribute("type", "text");
-  cardInput.setAttribute("name", "answer");
-  cardInput.setAttribute("id", "answer");
-
-  const submitButton = document.createElement("button");
-  submitButton.classList.add("button");
-  submitButton.setAttribute("id", "submit-button");
-  submitButton.textContent = "Submit";
-
-  cardForm.append(cardInput, submitButton);
-
-  const skipButton = document.createElement("button");
-  skipButton.classList.add("button-flat");
-  skipButton.setAttribute("id", "skip-button");
-  skipButton.textContent = "Skip ➜";
-
-  cardElement.append(cardTitle, cardImg, cardHint, cardForm, skipButton);
+  const skipButton = cardElement.querySelector("#skip");
+  skipButton.addEventListener("click", () => nextFlag());
 
   return cardElement;
 }
