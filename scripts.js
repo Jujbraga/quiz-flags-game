@@ -124,24 +124,37 @@ function createResultMessage(result) {
     right: {
       icon: "assets/icons/check-circle.svg",
       text: "🎉 Congrats! Right answer.",
+      clickRedirect: nextFlag,
     },
     wrong: {
       icon: "assets/icons/wrong-circle.svg",
       text: "😢 Wrong answer.",
+      clickRedirect: nextFlag,
+    },
+    final: {
+      text: "You’ve reached the end of the Easy level. Let’s see how you did!",
+      clickRedirect: renderResult,
     },
   };
 
-  const { icon, text } = config[result];
+  const { icon, text, clickRedirect } = config[result];
 
   const modal = document.createElement("div");
   modal.classList.add("modal");
 
   modal.innerHTML = `
     <div class="card ${result}">
-      <img src="${icon}" />
+    ${icon ? `<img src="${icon}" />` : ""}
       <h3>${text}</h3>
-      <button class="button">Next</button>
+      <button id="result-button" class="button">
+        ${result === "final" ? `See result` : `Next`}
+      </button>
     </div>`;
+
+  const button = modal.querySelector("#result-button");
+  button.addEventListener("click", () => clickRedirect());
+  // Focus the button automatically to work with enter key
+  setTimeout(() => button.focus(), 100);
 
   const quizContainer = document.querySelector(".quiz-container");
 
@@ -151,11 +164,19 @@ function createResultMessage(result) {
 function nextFlag() {
   if (flagPosition < shuffledFlags.length - 1) {
     flagPosition++;
-    console.log(flagPosition);
     renderCard(flagPosition);
   } else {
     createResultMessage("final");
   }
+}
+
+function renderResult() {
+  const result = document.querySelector(".result-container");
+  result.classList.remove("hidden");
+
+  const quizContainer = document.querySelector(".quiz-container");
+  quizContainer.innerHTML = "";
+  quizContainer.classList.add("hidden");
 }
 
 getFlags("eu-flags.json");
