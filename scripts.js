@@ -86,7 +86,7 @@ function createCard(flag) {
   const cardForm = cardElement.querySelector("#card-form");
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    checkAnswer(cardInput.value, flag.country);
+    checkAnswer(cardInput.value, flag);
     // Prevent to send again if enter pressed
     cardForm.innerHTML = "";
   });
@@ -111,10 +111,13 @@ function showHint(element, hint) {
   element.classList.add("revealed");
 }
 
-function checkAnswer(answer, country) {
-  const isCorrect = Object.values(country).some(
+function checkAnswer(answer, flag) {
+  // Check if the answer given is correct
+  const isCorrect = Object.values(flag.country).some(
     (value) => value.toLowerCase() === answer.toLowerCase(),
   );
+
+  isCorrect ? rightAnswers.push(flag) : wrongAnswers.push(flag);
 
   createResultMessage(isCorrect ? "right" : "wrong");
 }
@@ -171,12 +174,37 @@ function nextFlag() {
 }
 
 function renderResult() {
-  const result = document.querySelector(".result-container");
-  result.classList.remove("hidden");
-
+  // Hide the card container
   const quizContainer = document.querySelector(".quiz-container");
   quizContainer.innerHTML = "";
   quizContainer.classList.add("hidden");
+
+  const result = document.querySelector(".result-container");
+  result.classList.remove("hidden");
+
+  // Show the number of right answers
+  const rightCount = result.querySelector("#right-count");
+  rightCount.innerHTML = `${rightAnswers.length} right answers`;
+
+  // Show the number of wrong answers
+  const wrongCount = result.querySelector("#wrong-count");
+  wrongCount.innerHTML = `${wrongAnswers.length} wrong answers`;
+
+  const rightBox = document.querySelector("#right-results");
+  const wronBox = document.querySelector("#wrong-results");
+
+  // Render the right and wrong blocks
+  rightAnswers.forEach((flag) => createResults(rightBox, flag));
+  wrongAnswers.forEach((flag) => createResults(wronBox, flag));
+}
+
+function createResults(container, flag) {
+  container.innerHTML += `
+ <div>
+      <img src="${imgPath + flag.url}" />
+      <p>${flag.country.en}</p>
+    </div>
+`;
 }
 
 getFlags("eu-flags.json");
@@ -188,7 +216,7 @@ getFlags("eu-flags.json");
 // 5. Show each data in the card - OK
 // 6. Receive the input and check answer - OK
 // 7. Message: Right and Wrong -OK
-// 8. Put the country in right or wrong result
-// 9. Change the card
+// 8. Put the country in right or wrong result - OK
+// 9. Change the card - OK
 // 10. Change level
 // 11. Restart game

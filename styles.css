@@ -189,6 +189,9 @@ form {
 
 .results {
   padding-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 
   & img {
     width: 6rem;
