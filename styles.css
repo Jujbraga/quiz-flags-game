@@ -94,6 +94,11 @@ footer {
   border-radius: 1rem;
   background: var(--bg-card);
   color: var(--text-dark);
+
+  & span {
+    align-self: end;
+    margin-bottom: -1.5rem;
+  }
 }
 
 .card-flag {
@@ -128,12 +133,21 @@ form {
   color: var(--text-dark);
   border-radius: 0.5rem;
   cursor: pointer;
+
+  &:hover {
+    background-color: var(--brand-light);
+    border: 2px solid var(--brand-dark);
+  }
 }
 
 .button-flat {
   all: unset;
   cursor: pointer;
   align-self: end;
+
+  &:hover {
+    color: var(--brand-dark);
+  }
 }
 
 .result-container {

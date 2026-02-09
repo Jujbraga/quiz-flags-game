@@ -28,6 +28,7 @@ async function getFlags(file) {
 
 function setLevel() {
   const levelOptions = document.querySelector(".level-options");
+  levelOptions.classList.remove("hidden");
 
   levelOptions.addEventListener("click", (e) => {
     // Find the button element with the data attribute
@@ -65,6 +66,7 @@ function createCard(flag) {
   cardElement.classList.add("card");
 
   cardElement.innerHTML = `
+    <span>${flagPosition + 1} of ${shuffledFlags.length}</span>
     <h2>Whose flag is this?</h2>
     <img class="card-flag" src="${imgPath + flag.url}">
     <p id="hint" class="hint">Show hint</p>
@@ -200,7 +202,7 @@ function renderResult() {
 
 function createResults(container, flag) {
   container.innerHTML += `
- <div>
+    <div>
       <img src="${imgPath + flag.url}" />
       <p>${flag.country.en}</p>
     </div>
