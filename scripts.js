@@ -6,6 +6,7 @@ let level = ""; // Game level
 let flagsData = []; // List with all flags
 let shuffledFlags = []; // Countries list shuffled and sorted by level
 let availableFlags = []; // Flags left to show in the current level
+let flagPosition = 0; // Flag position in the list
 let rightAnswers = []; // List of the right answers
 let wrongAnswers = []; // List of the wrong answers
 
@@ -50,7 +51,7 @@ function initGame(level) {
   // Shuffle the flags
   shuffledFlags = shuffle(levelFlags);
 
-  renderCard();
+  renderCard(flagPosition);
 }
 
 // Shuffle items in the array
@@ -91,11 +92,12 @@ function createCard(flag) {
   return cardElement;
 }
 
-function renderCard() {
+function renderCard(position) {
   const quizContainer = document.querySelector(".quiz-container");
+  quizContainer.innerHTML = "";
   quizContainer.classList.remove("hidden");
 
-  const cardElement = createCard(shuffledFlags[0]);
+  const cardElement = createCard(shuffledFlags[position]);
   quizContainer.appendChild(cardElement);
 }
 
@@ -139,6 +141,16 @@ function createResultMessage(result) {
   const quizContainer = document.querySelector(".quiz-container");
 
   quizContainer.appendChild(modal);
+}
+
+function nextFlag() {
+  if (flagPosition < shuffledFlags.length - 1) {
+    flagPosition++;
+    console.log(flagPosition);
+    renderCard(flagPosition);
+  } else {
+    createResultMessage("final");
+  }
 }
 
 getFlags("eu-flags.json");
