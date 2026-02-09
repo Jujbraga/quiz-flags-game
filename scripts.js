@@ -74,6 +74,10 @@ function createCard(flag) {
     </form>
     <button class="button-flat" id="skip">Skip ➜</button>`;
 
+  const cardInput = cardElement.querySelector("form input");
+  // Focus the input automatically
+  setTimeout(() => cardInput.focus(), 100);
+
   const cardHint = cardElement.querySelector("#hint");
   cardHint.addEventListener("click", () => showHint(cardHint, flag.hint), {
     once: true,
@@ -82,8 +86,9 @@ function createCard(flag) {
   const cardForm = cardElement.querySelector("#card-form");
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const cardInput = document.querySelector("form input");
     checkAnswer(cardInput.value, flag.country);
+    // Prevent to send again if enter pressed
+    cardForm.innerHTML = "";
   });
 
   const skipButton = cardElement.querySelector("#skip");
