@@ -70,7 +70,7 @@ function createCard(flag) {
     <h2>Whose flag is this?</h2>
     <img class="card-flag" src="${imgPath + flag.url}">
     <p id="hint" class="hint">Show hint</p>
-    <form id="card-form">
+    <form id="card-form" autocomplete="off">
       <input type="text" name="answer" id="answer">
       <button class="button" id="submit">Submit</button>
     </form>
@@ -135,7 +135,7 @@ function createResultMessage(result) {
       clickRedirect: nextFlag,
     },
     final: {
-      text: "You’ve reached the end of the Easy level. Let’s see how you did!",
+      text: `You’ve reached the end of the ${level} level. Let’s see how you did!`,
       clickRedirect: renderResult,
     },
   };
@@ -200,7 +200,10 @@ function renderResult() {
   `;
 
   const restartButton = restartWrapper.querySelector("#again");
-  restartButton.addEventListener("click", restartGame);
+  restartButton.addEventListener("click", () => {
+    restartButton.remove();
+    restartGame();
+  });
   result.after(restartWrapper);
 
   // Render the right and wrong blocks
@@ -230,3 +233,14 @@ function restartGame() {
 }
 
 getFlags("eu-flags.json");
+
+// 1. regex para aceitar somente letras e acentos
+// 2. trim para retirar espaços em branco do input
+// 3. desabilitar sugestões - OK
+// 4. menssagem final com level easy apenas, deixar dinâmico - OK
+// 3. Abrir as respostas corretas ao passar o mouse por cima ou clicar no celular
+// 4. Dicas mais fáceis no nível hard
+// ERROS
+// 1. Ao clicar para jogar again só deixa jogar 1 bandeira
+// 2. Botões jogar again repetidos - OK
+// 3. Flags skip não aparece em Wrong
