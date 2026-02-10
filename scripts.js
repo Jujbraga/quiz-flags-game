@@ -89,8 +89,6 @@ function createCard(flag) {
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
     checkAnswer(cardInput.value, flag);
-    // Prevent to send again if enter pressed
-    cardForm.innerHTML = "";
   });
 
   const skipButton = cardElement.querySelector("#skip");
@@ -195,6 +193,16 @@ function renderResult() {
   const rightBox = document.querySelector("#right-results");
   const wronBox = document.querySelector("#wrong-results");
 
+  const restartWrapper = document.createElement("div");
+  restartWrapper.classList.add("button-wrapper", "wrapper-restart");
+  restartWrapper.innerHTML = `
+    <button id="again" class="button">Play again</button>
+  `;
+
+  const restartButton = restartWrapper.querySelector("#again");
+  restartButton.addEventListener("click", restartGame);
+  result.after(restartWrapper);
+
   // Render the right and wrong blocks
   rightAnswers.forEach((flag) => createResults(rightBox, flag));
   wrongAnswers.forEach((flag) => createResults(wronBox, flag));
@@ -206,19 +214,19 @@ function createResults(container, flag) {
       <img src="${imgPath + flag.url}" />
       <p>${flag.country.en}</p>
     </div>
-`;
+  `;
+}
+
+function restartGame() {
+  // Clear answers variables
+  rightAnswers = [];
+  wrongAnswers = [];
+
+  // Hide the result container
+  const result = document.querySelector(".result-container");
+  result.classList.add("hidden");
+
+  setLevel();
 }
 
 getFlags("eu-flags.json");
-
-// 1. Get data from json - OK
-// 2. Set level by click - OK
-// 3. Separate data by level - OK
-// 4. Build the card - OK
-// 5. Show each data in the card - OK
-// 6. Receive the input and check answer - OK
-// 7. Message: Right and Wrong -OK
-// 8. Put the country in right or wrong result - OK
-// 9. Change the card - OK
-// 10. Change level
-// 11. Restart game

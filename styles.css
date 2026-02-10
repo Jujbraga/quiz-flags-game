@@ -76,6 +76,11 @@ footer {
   margin-top: 1.25rem;
 }
 
+.wrapper-restart {
+  width: 30%;
+  align-self: center;
+}
+
 .quiz-container {
   display: flex;
   flex: 1;
