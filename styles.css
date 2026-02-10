@@ -152,6 +152,7 @@ form {
 
 .result-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   flex: 1;
   gap: 1.25rem;
@@ -204,7 +205,7 @@ form {
 .results {
   padding-top: 1.25rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 
   & img {
@@ -214,4 +215,10 @@ form {
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 900px) {
+  .results {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
