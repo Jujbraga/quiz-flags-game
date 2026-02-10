@@ -5,7 +5,6 @@ const imgPath = "assets/flags/";
 let level = ""; // Game level
 let flagsData = []; // List with all flags
 let shuffledFlags = []; // Countries list shuffled and sorted by level
-let availableFlags = []; // Flags left to show in the current level
 let flagPosition = 0; // Flag position in the list
 let rightAnswers = []; // List of the right answers
 let wrongAnswers = []; // List of the wrong answers
@@ -88,7 +87,7 @@ function createCard(flag) {
   const cardForm = cardElement.querySelector("#card-form");
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    checkAnswer(cardInput.value, flag);
+    checkAnswer(cardInput.value.trim(), flag);
   });
 
   const skipButton = cardElement.querySelector("#skip");
@@ -191,7 +190,10 @@ function renderResult() {
   wrongCount.innerHTML = `${wrongAnswers.length} wrong answers`;
 
   const rightBox = document.querySelector("#right-results");
+  rightBox.innerHTML = "";
+
   const wronBox = document.querySelector("#wrong-results");
+  wronBox.innerHTML = "";
 
   const restartWrapper = document.createElement("div");
   restartWrapper.classList.add("button-wrapper", "wrapper-restart");
@@ -221,9 +223,12 @@ function createResults(container, flag) {
 }
 
 function restartGame() {
-  // Clear answers variables
+  // Reset game variables
   rightAnswers = [];
   wrongAnswers = [];
+  shuffledFlags = [];
+  flagPosition = 0;
+  level = "";
 
   // Hide the result container
   const result = document.querySelector(".result-container");
@@ -235,12 +240,12 @@ function restartGame() {
 getFlags("eu-flags.json");
 
 // 1. regex para aceitar somente letras e acentos
-// 2. trim para retirar espaços em branco do input
+// 2. trim para retirar espaços em branco do input - OK
 // 3. desabilitar sugestões - OK
 // 4. menssagem final com level easy apenas, deixar dinâmico - OK
 // 3. Abrir as respostas corretas ao passar o mouse por cima ou clicar no celular
 // 4. Dicas mais fáceis no nível hard
 // ERROS
-// 1. Ao clicar para jogar again só deixa jogar 1 bandeira
+// 1. Ao clicar para jogar again só deixa jogar 1 bandeira - OK
 // 2. Botões jogar again repetidos - OK
 // 3. Flags skip não aparece em Wrong
