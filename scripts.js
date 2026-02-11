@@ -78,6 +78,10 @@ function createCard(flag) {
   const cardInput = cardElement.querySelector("form input");
   // Focus the input automatically
   setTimeout(() => cardInput.focus(), 100);
+  cardInput.addEventListener("input", () => {
+    const regex = /[^\p{L}\s~´^]/gu;
+    cardInput.value = cardInput.value.replace(regex, "");
+  });
 
   const cardHint = cardElement.querySelector("#hint");
   cardHint.addEventListener("click", () => showHint(cardHint, flag.hint), {
@@ -91,7 +95,10 @@ function createCard(flag) {
   });
 
   const skipButton = cardElement.querySelector("#skip");
-  skipButton.addEventListener("click", () => nextFlag());
+  skipButton.addEventListener("click", () => {
+    wrongAnswers.push(flag);
+    nextFlag();
+  });
 
   return cardElement;
 }
@@ -239,7 +246,7 @@ function restartGame() {
 
 getFlags("eu-flags.json");
 
-// 1. regex para aceitar somente letras e acentos
+// 1. regex para aceitar somente letras e acentos - OK
 // 2. trim para retirar espaços em branco do input - OK
 // 3. desabilitar sugestões - OK
 // 4. menssagem final com level easy apenas, deixar dinâmico - OK
@@ -248,4 +255,4 @@ getFlags("eu-flags.json");
 // ERROS
 // 1. Ao clicar para jogar again só deixa jogar 1 bandeira - OK
 // 2. Botões jogar again repetidos - OK
-// 3. Flags skip não aparece em Wrong
+// 3. Flags skip não aparece em Wrong - OK
