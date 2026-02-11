@@ -128,13 +128,13 @@
           "id": 19,
           "country": { "en": "Croatia", "sv": "Kroatien", "pt": "Croácia" },
           "url": "hr.svg",
-          "hint": "Famous for the red and white checkered pattern on its football jerseys"
+          "hint": "My capital is Zagreb, but the famous city is Dubrovnik"
         },
         {
           "id": 20,
           "country": { "en": "Lithuania", "sv": "Litauen", "pt": "Lituânia" },
           "url": "lt.svg",
-          "hint": "A Baltic country whose name starts with 'L' and is a world leader in basketball"
+          "hint": "Once was part of the Soviet Union, my name starts with 'L'"
         }
       ]
     },
@@ -149,13 +149,13 @@
             "pt": "San Marino"
           },
           "url": "sm.svg",
-          "hint": "One of the world's oldest republics, completely surrounded by Italy"
+          "hint": "One of the world's oldest republics, completely surrounded by Italy. My name has two words"
         },
         {
           "id": 22,
           "country": { "en": "Bulgaria", "sv": "Bulgarien", "pt": "Bulgária" },
           "url": "bg.svg",
-          "hint": "Located in the Balkans, famous for its rose oil"
+          "hint": "Located in the Balkans, my capital is capital is Sofia"
         },
         {
           "id": 23,
@@ -177,7 +177,7 @@
           "id": 25,
           "country": { "en": "Albania", "sv": "Albanien", "pt": "Albânia" },
           "url": "al.svg",
-          "hint": "Its flag is a black double-headed eagle on a bright red background"
+          "hint": "Located in the Balkans, my name starts with A"
         },
         {
           "id": 26,
@@ -189,7 +189,7 @@
           "id": 27,
           "country": { "en": "Andorra", "sv": "Andorra", "pt": "Andorra" },
           "url": "ad.svg",
-          "hint": "A tiny principality located in the Pyrenees mountains"
+          "hint": "A tiny principality located between France and Spain, my first letter is A"
         },
         {
           "id": 28,
@@ -201,7 +201,7 @@
           "id": 29,
           "country": { "en": "Moldova", "sv": "Moldavien", "pt": "Moldávia" },
           "url": "md.svg",
-          "hint": "Known for its massive wine cellars"
+          "hint": "Located between Romania and Ukraine, known for wine production, my name starts with M"
         },
         {
           "id": 30,
@@ -211,7 +211,7 @@
             "pt": "Vaticano"
           },
           "url": "va.svg",
-          "hint": "The smallest independent state in the world"
+          "hint": "The smallest independent state in the world, home of Pope"
         },
         {
           "id": 31,
@@ -221,7 +221,7 @@
             "pt": "Gibraltar"
           },
           "url": "gi.svg",
-          "hint": "Famous for a giant rock and the only wild monkeys in Europe"
+          "hint": "Famous for a giant rock and the only wild monkeys in Europe, control the entrance to the Mediterranean Sea"
         }
       ]
     }
