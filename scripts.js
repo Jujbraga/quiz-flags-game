@@ -118,6 +118,8 @@ function showHint(element, hint) {
 }
 
 function checkAnswer(answer, flag) {
+  flag.answer = answer;
+
   // Check if the answer given is correct
   const isCorrect = Object.values(flag.country).some(
     (value) => value.toLowerCase() === answer.toLowerCase(),
@@ -216,15 +218,25 @@ function renderResult() {
   result.after(restartWrapper);
 
   // Render the right and wrong blocks
-  rightAnswers.forEach((flag) => createResults(rightBox, flag));
-  wrongAnswers.forEach((flag) => createResults(wronBox, flag));
+  rightAnswers.forEach((flag) =>
+    createResults(rightBox, flag, (showAnswer = false)),
+  );
+  wrongAnswers.forEach((flag) =>
+    createResults(wronBox, flag, (showAnswer = true)),
+  );
 }
 
 function createResults(container, flag) {
   container.innerHTML += `
-    <div>
+    <div class="result-flag">
       <img src="${imgPath + flag.url}" />
       <p>${flag.country.en}</p>
+      <div class="card tooltip">
+        <h3>Righ answers:</h3>
+        <p>🇺🇸 ${flag.country.en}</p>
+        <p>🇸🇪 ${flag.country.sv}</p>
+        <p>🇧🇷 ${flag.country.pt}</p>
+        ${showAnswer ? `<h3>Your answer:</h3><p>${flag.answer || "Skiped"}</p>` : ""}
     </div>
   `;
 }
@@ -245,14 +257,3 @@ function restartGame() {
 }
 
 getFlags("eu-flags.json");
-
-// 1. regex para aceitar somente letras e acentos - OK
-// 2. trim para retirar espaços em branco do input - OK
-// 3. desabilitar sugestões - OK
-// 4. menssagem final com level easy apenas, deixar dinâmico - OK
-// 3. Abrir as respostas corretas ao passar o mouse por cima ou clicar no celular
-// 4. Dicas mais fáceis no nível hard
-// ERROS
-// 1. Ao clicar para jogar again só deixa jogar 1 bandeira - OK
-// 2. Botões jogar again repetidos - OK
-// 3. Flags skip não aparece em Wrong - OK

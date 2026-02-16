@@ -19,7 +19,7 @@ body {
   background: var(--background) url(assets/bg-world-map.png) no-repeat center;
   color: var(--text-color);
   font:
-    400 0.85rem/1.5 "Lexend Deca",
+    400 0.8rem/1.5 "Lexend Deca",
     sans-serif;
   padding: 1.25rem;
   display: flex;
@@ -215,7 +215,28 @@ form {
 
   & img {
     width: 6rem;
+    border: 1px solid #fff;
   }
+}
+
+.result-flag {
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  top: 3.125rem;
+  left: -1.44rem;
+  max-width: 9.06rem;
+  opacity: 0.95;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  z-index: 1;
+}
+
+.result-flag:hover .tooltip {
+  visibility: visible;
 }
 
 .hidden {
